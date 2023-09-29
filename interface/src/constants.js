@@ -7,7 +7,7 @@ export const chainsDetails = {
         currency: "ETH",
         network: "",
         apiKey: "",
-        contract: "0x910605Cf714973AE054bD82C071EA22daD231Da3",
+        contract: "0xC4FAbC440e56094C3942f9858BaC8f14C4E98826",
         destChain: "Optimism",
         destinationChainSelector: "2664363617261496610",
         rpc: "https://endpoints.omniatech.io/v1/op/goerli/public",
