@@ -165,7 +165,7 @@ function Liquidity ({chainId}) {
                     <div className='flex flex-row justify-between items-center'>
                         <div className='flex text-gray-500 text-sm'>My Stake: <div className='font-semibold pl-1'>{+parseFloat(myStake).toFixed(4)}</div></div>
                         <div className='flex items-center space-x-2'>
-                            <div className='flex text-gray-500 text-sm'>My Rewards: <div className='font-semibold pl-1'>{+parseFloat(myRewards).toFixed(4)}</div></div>
+                            <div className='flex text-gray-500 text-sm'>My Rewards: <div className='font-semibold pl-1'>{+parseFloat(myRewards).toFixed(6)}</div></div>
                             {
                                 myRewards > 0 ? <button className='rounded-lg px-2 py-2 bg-[#E6FB04] text-xs font-semibold'>Claim</button> : ""
                             }
