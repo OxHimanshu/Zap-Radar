@@ -65,7 +65,8 @@ function TransferDetailsFlap({toChain, chain}) {
             const _receiveAmount = +parseFloat(ethers.formatEther((fromConversionRate * transferAmt)/toConversionRate)).toFixed(4)
             setReceiveAmount(_receiveAmount)
 
-            let _bridgeFees = (0.3 * (0.35 * 100000000)) / Number(fromConversionRate)
+            // let _bridgeFees = (0.3 * (0.35 * 100000000)) / Number(fromConversionRate)
+            let _bridgeFees = 0
             setBridgeFees(_bridgeFees)
 
             setPayAmount(Number(_bridgeFees) + Number(val))

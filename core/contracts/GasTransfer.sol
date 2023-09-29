@@ -24,8 +24,7 @@ contract GasTransfer  is OwnerIsCreator, CCIPReceiver {
     event MessageReceived(
         bytes32 indexed messageId, // The unique ID of the message.
         uint64 indexed sourceChainSelector, // The chain selector of the source chain.
-        address sender, // The address of the sender from the source chain.
-        string text // The text that was received.
+        address sender // The address of the sender from the source chain.
     );
 
     bytes32 private lastReceivedMessageId; // Store the last received messageId.
@@ -138,7 +137,7 @@ contract GasTransfer  is OwnerIsCreator, CCIPReceiver {
         totalRewards = totalRewards + (bridgeAmount - nativeTokenAmount);
 
         uint nativeTokenUsdAmount = (nativeTokenAmount * getLatestData()) / 10e8;
-        bytes memory message = abi.encode(nativeTokenUsdAmount, receiver);
+        bytes memory message = abi.encode(nativeTokenUsdAmount, msg.sender);
         _sendMessage(destinationChainSelector, receiver, message);
     }
 
@@ -159,8 +158,7 @@ contract GasTransfer  is OwnerIsCreator, CCIPReceiver {
         emit MessageReceived(
             any2EvmMessage.messageId,
             any2EvmMessage.sourceChainSelector, // fetch the source chain identifier (aka selector)
-            abi.decode(any2EvmMessage.sender, (address)), // abi-decoding of the sender address,
-            abi.decode(any2EvmMessage.data, (string))
+            abi.decode(any2EvmMessage.sender, (address)) // abi-decoding of the sender address,
         );
     }
 

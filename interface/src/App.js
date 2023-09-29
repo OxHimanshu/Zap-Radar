@@ -8,12 +8,31 @@ import {
 } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import {
-  optimismGoerli, avalancheFuji, polygonMumbai
+  optimismGoerli, avalancheFuji
 } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 import Navbar from './components/Navbar';
 import Fuel from './pages/Fuel';
 import Dashboard from './pages/Dashboard';
+
+export const polygonMumbai = {
+  id: 80_001,
+  name: 'Polygon',
+  network: 'polygon',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Polygon',
+    symbol: 'MATIC',
+  },
+  rpcUrls: {
+    public: { http: ['https://rpc-mumbai.maticvigil.com'] },
+    default: { http: ['https://rpc-mumbai.maticvigil.com'] },
+  },
+  blockExplorers: {
+    etherscan: { name: 'SnowTrace', url: 'https://mumbai.polygonscan.com' },
+    default: { name: 'SnowTrace', url: 'https://mumbai.polygonscan.com' },
+  },
+} 
 
 const { chains, publicClient } = configureChains(
   [optimismGoerli, avalancheFuji, polygonMumbai],
